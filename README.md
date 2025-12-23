@@ -20,7 +20,6 @@ Active learning (AL) prioritises which compounds to measure next for protein–l
 - `notebooks/` — cleaned tutorial notebook `al_notebook.ipynb`.
 - `scripts/` — CLI helpers (e.g., `scripts/run_al.py`).
 - `tests/` — unit tests for core utilities (keep for CI/regression checks).
-- `archive/` — legacy files moved during reorganisation (preserved for reference).
 
 ---
 
@@ -66,7 +65,7 @@ streamlit run apps/shap_app/shapey.py
 
 Notes:
 - The SHAP app expects experiment outputs (CSV/NPZ). You can download the paper's results from Zenodo and point the app to that folder.
-- A simple backend is optional and archived at `archive/backend_main.py` if you need an upload endpoint.
+
 
 ---
 
