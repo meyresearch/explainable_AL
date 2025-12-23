@@ -8,24 +8,6 @@ Active learning (AL) prioritises which compounds to measure next for protein–l
 
 📦 Zenodo (SHAP results): https://zenodo.org/records/17935028
 
-
-## Quickstart
-
-Prerequisites:
-
-- Python 3.8+
-- pip
-
-Install dependencies:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-
-
 ---
 
 ## 📁 Repository overview
@@ -47,9 +29,15 @@ pip install -r requirements.txt
 1) Create a reproducible environment (conda recommended for RDKit):
 
 ```bash
-conda create -n aal python=3.10 -y
-conda activate aal
-conda install -c conda-forge rdkit numpy pandas scikit-learn matplotlib seaborn pytorch -y
+conda create -n al python=3.10 -y
+conda activate al
+conda install -c conda-forge rdkit numpy pandas scikit-learn matplotlib seaborn pytorch jupyter -y
+pip install -r requirements.txt
+```
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
