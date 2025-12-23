@@ -1,33 +1,7 @@
 """
-SHAP GUI moved into apps/shap_app. This is a direct copy of the original `shap_gui/shapey.py`.
+SHAP analysis application for active learning in molecular property prediction.
 """
-#==============================================================================
-# UNIFIED DRUG DISCOVERY ANALYSIS PLATFORM
-# Combines SHAP-guided analysis with protocol performance visualization
-# 
-# Features:
-# 1. SHAP-guided drug discovery:
-#    - Chemical fragment mapping
-#    - Feature evolution analysis
-#    - Molecular design templates
-#    - SAR analysis
-# 
-# 2. Protocol performance analysis:
-#    - Performance comparisons
-#    - Ridge plots
-#    - Affinity predictions
-#    - Chemical space visualization
-# 
-# 3. Publication-quality visualizations:
-#    - Similarity distributions
-#    - Property analysis
-#    - Performance summaries
-#    - Comprehensive heatmaps
-# ==============================================================================
 
-# ==============================================================================
-# 1. IMPORTS AND DEPENDENCIES
-# ==============================================================================
 # Standard library imports
 import os
 import pickle
