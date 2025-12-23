@@ -123,7 +123,7 @@ See [LICENSE.md](LICENSE.md). -->
 
 ## 📫 Contact us
 
-- Satya Pratik Srivastava ([satya@ed.ac.uk](mailto:satya@ed.ac.uk))
+- Satya Pratik Srivastava ([satya@ed.ac.uk](mailto:ss864@snu.edu.in))
 
 - Rohan Gorantla ([rohan.gorantla@ed.ac.uk](mailto:rohan.gorantla@ed.ac.uk))
 
