@@ -1,0 +1,19 @@
+# Core Python dependencies (prefer pinning in production/CI)
+streamlit
+matplotlib
+seaborn
+plotly
+fastapi
+uvicorn
+python-dotenv
+numpy<2.0
+torch
+gpytorch
+scikit-learn
+tqdm
+shap
+pandas
+requests
+
+# NOTE: rdkit is best installed via conda-forge (conda install -c conda-forge rdkit)
+# rdkit-pypi exists but may be platform-unreliable; prefer conda for reproducibility.

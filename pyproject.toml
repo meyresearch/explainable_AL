@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "explainable-al"
+version = "0.1.0"
+description = "Explainable Active Learning Framework for Ligand Binding Affinity Prediction"
+authors = [
+  { name = "Rohan", email = "rohan@example.com" },
+  { name = "Satya", email = "satya@example.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["active-learning", "gpytorch", "rdkit", "drug-discovery", "shap"]
+
+[project.scripts]
+exal-run = "scripts.run_al:main"
+exal-shap = "apps.shap_app.launch_shap:main"
