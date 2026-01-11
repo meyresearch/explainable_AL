@@ -18,33 +18,6 @@ This application provides a user-friendly interface for running active learning 
 
 ---
 
-## 🚀 Quick Start
-
-### Installation
-
-```bash
-# Clone the repository
-git clone <your-repo-url>
-cd <repo-directory>
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### Required Dependencies
-
-```
-streamlit>=1.28.0
-pandas>=2.0.0
-numpy>=1.24.0
-torch>=2.0.0
-gpytorch>=1.11.0
-rdkit>=2023.3.1
-scikit-learn>=1.3.0
-scipy>=1.11.0
-transformers>=4.30.0  # Optional, for ChemBERTa
-```
-
 ### Running the Application
 
 ```bash
@@ -302,30 +275,6 @@ data.to_csv('molecules.csv', index=False)
 ---
 
 
-## 📝 Code Architecture
-
-### Module Organization
-
-**`app.py`** - Main Streamlit application
-- UI layout and interaction
-- Session state management
-- Workflow orchestration
-
-**`active_learning_core.py`** - Compatibility wrapper
-- Re-exports from `explainable_al.active_learning_core`
-- Keeps legacy imports working
-- **Note**: Contains duplicate function definitions (see Known Issues)
-
-**`plotting.py`** - Visualization wrapper
-- Re-exports `make_plot_recall` from package
-- Streamlit-compatible plotting
-
-**`utils.py`** - Utility wrapper
-- Re-exports fingerprint generators
-- Re-exports metric calculators
-
-
----
 
 ## 🔄 Integration with Package
 
@@ -356,9 +305,3 @@ from explainable_al.metrics_plots import make_plot_recall
 ```
 
 
-
-
-
-**Version**: 1.0.0  
-**Last Updated**: January 2026  
-**Dependencies**: See `requirements.txt`
