@@ -4,16 +4,16 @@ Active learning (AL) prioritises which compounds to measure next for protein–l
 
 ![Active learning pipeline](workflow.png)
 
-🔗 Preprint: https://www.biorxiv.org/content/10.64898/2025.12.17.694851v1.full.pdf
+🔗 Paper: https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00436e
 
-📦 Zenodo (SHAP results): https://zenodo.org/records/17935028
+📦 Zenodo (Data and results): https://doi.org/10.5281/zenodo.17935028
 
 ---
 
 ## 📁 Repository overview
 
 - `explainable_al/` — core Python package (featurisers, GP surrogate, acquisition functions, experiment runner, plotting helpers).
-- `apps/` — demo Streamlit apps:
+- `apps/` — Streamlit apps:
 	- `apps/al_app` — interactive active learning GUI (uses `explainable_al`).
 	- `apps/shap_app` — SHAP analysis GUI (expects precomputed results from Zenodo or your own runs).
 - `data/` — example CSV datasets used by notebooks and tests.
@@ -94,18 +94,12 @@ If you find the work useful in your research, please cite our paper:
 ```
 @article{srivastava2025explainable,
   title={Explainable Active Learning Framework for Ligand Binding Affinity Prediction},
-  author={Srivastava, Satya Pratik and Gorantla, Rohan and Sharath Krishna, Chundru and Winkelman, Claire JR and Mey, Antonia and Singh, Rajeev Kumar},
-  journal={bioRxiv},
-  pages={2025--12},
+  author={Srivastava, Satya Pratik and Gorantla, Rohan and Chundru, Sharath Krishna and Winkelman, Claire JR and Mey, Antonia and Singh, Rajeev Kumar},
+  journal={Digital Discovery},
   year={2025},
-  publisher={Cold Spring Harbor Laboratory}
+  publisher={Royal Society of Chemistry}
 }
 ```
-
-
-<!-- ## 📜 Licence 
-
-See [LICENSE.md](LICENSE.md). -->
 
 
 ## 📫 Contact us
