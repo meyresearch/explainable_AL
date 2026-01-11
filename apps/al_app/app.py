@@ -14,17 +14,8 @@ from explainable_al.active_learning_core import (
     ei_selection,
 )
 from explainable_al import metrics_plots
-from explainable_al import active_learning_core as _alc
-from explainable_al import utils as _alutils
-from explainable_al.active_learning_core import run_active_learning_experiment
-from explainable_al.metrics_plots import make_plot_recall
-from explainable_al.active_learning_core import TanimotoKernel as TanimotoKernel
-from explainable_al.active_learning_core import GPRegressionModel as GPRegressionModel
-from explainable_al.active_learning_core import train_gp_model as train_gp_model
-from explainable_al.active_learning_core import ucb_selection as ucb_selection
-from explainable_al.active_learning_core import pi_selection as pi_selection
-from explainable_al.active_learning_core import ei_selection as ei_selection
 from explainable_al import utils as utils_module
+from explainable_al.metrics_plots import make_plot_recall
 
 # --- Pre-defined Protocols --- #
 selection_protocols = {
@@ -126,7 +117,6 @@ def main():
 
     if uploaded_file is not None:
         st.session_state.df = pd.read_csv(uploaded_file)
-        r2, spearman = utils_module.calculate_metrics(final_model, final_likelihood, test_x, test_y)
     if 'df' in st.session_state:
         st.dataframe(st.session_state.df.head())
         df = st.session_state.df

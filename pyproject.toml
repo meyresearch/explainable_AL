@@ -20,3 +20,7 @@ exal-shap = "apps.shap_app.launch_shap:main"
 
 [tool.setuptools]
 packages = ["explainable_al"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["explainable_al*"]
