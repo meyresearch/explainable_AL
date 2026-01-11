@@ -222,7 +222,7 @@ def calculate_similarity_matrix_safe(fingerprints, metric='jaccard'):
 #    - Property analysis
 #    - Performance summaries
 #    - Comprehensive heatmaps
- ==============================================================================
+# ==============================================================================
 # 2. APPLICATION CONFIGURATION
 # ==============================================================================
 PAGE_TITLE = "Active Learning Analysis Platform"

@@ -17,3 +17,6 @@ keywords = ["active-learning", "gpytorch", "rdkit", "drug-discovery", "shap"]
 [project.scripts]
 exal-run = "scripts.run_al:main"
 exal-shap = "apps.shap_app.launch_shap:main"
+
+[tool.setuptools]
+packages = ["explainable_al"]

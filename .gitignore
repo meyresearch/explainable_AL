@@ -139,3 +139,12 @@ dmypy.json
 cython_debug/
 
 .DS_store
+
+# Claude Code workspace
+.claude/
+
+# Experiment results and outputs
+results/
+
+# Temporary files
+nul

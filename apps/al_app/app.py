@@ -25,7 +25,6 @@ from explainable_al.active_learning_core import ucb_selection as ucb_selection
 from explainable_al.active_learning_core import pi_selection as pi_selection
 from explainable_al.active_learning_core import ei_selection as ei_selection
 from explainable_al import utils as utils_module
-from plotting import make_plot_recall
 
 # --- Pre-defined Protocols --- #
 selection_protocols = {
@@ -36,12 +35,12 @@ selection_protocols = {
 def run_active_learning_cycle(original_df, fingerprints, kernel, selection_protocol, protocol_name, y_column):
     """
     Runs a full active learning cycle for a given protocol.
-import streamlit as st
-import pandas as pd
-import numpy as np
-import torch
-import gpytorch
-import traceback
+
+    Args:
+        original_df: The original DataFrame.
+        fingerprints: List of fingerprints.
+        kernel: The kernel to use.
+        selection_protocol: The selection protocol.
         protocol_name (str): The name of the protocol.
         y_column (str): The name of the target column.
 
@@ -51,11 +50,6 @@ import traceback
     st.subheader(f"Running Protocol: {protocol_name}")
     progress_bar = st.progress(0)
     results_placeholder = st.empty()
-from explainable_al import metrics_plots
-from explainable_al import active_learning_core as _alc
-from explainable_al import utils as utils_module
-from explainable_al.active_learning_core import run_active_learning_experiment
-from explainable_al.metrics_plots import make_plot_recall
     already_selected_indices = []
     cycle_results = []
     top_2p_count = 0
