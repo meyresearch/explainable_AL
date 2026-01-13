@@ -97,8 +97,8 @@ If you find the work useful in your research, please cite our paper:
   author={Srivastava, Satya Pratik and Gorantla, Rohan and Chundru, Sharath Krishna and Winkelman, Claire JR and Mey, Antonia and Singh, Rajeev Kumar},
   journal={Digital Discovery},
   year={2025},
-  publisher={Royal Society of Chemistry}
-}
+  publisher={Royal Society of Chemistry},
+doi = {DOI	https://doi.org/10.1039/D5DD00436E}
 ```
 
 
