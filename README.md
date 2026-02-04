@@ -4,9 +4,11 @@ Active learning (AL) prioritises which compounds to measure next for protein–l
 
 ![Active learning pipeline](workflow.png)
 
-🔗 Preprint: https://www.biorxiv.org/content/10.64898/2025.12.17.694851v1.full.pdf
+🔗 Paper: https://pubs.rsc.org/en/content/articlelanding/2025/dd/d5dd00436e
 
 📦 Zenodo (SHAP results): https://zenodo.org/records/17935028
+
+📝 Our previous work for certain AL design choices can be found at - https://pubs.acs.org/doi/10.1021/acs.jcim.4c00220
 
 ---
 
