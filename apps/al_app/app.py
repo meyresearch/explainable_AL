@@ -4,6 +4,11 @@ import numpy as np
 import torch
 import gpytorch
 import traceback
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+from explainable_al.utils import calculate_metrics
+
 
 from explainable_al.active_learning_core import (
     TanimotoKernel,
@@ -19,9 +24,14 @@ from explainable_al.metrics_plots import make_plot_recall
 
 # --- Pre-defined Protocols --- #
 selection_protocols = {
+     "random": [("random", 60)] + [("random", 30)] * 10,
+     "ucb-alternate": [("random", 60)] + [("explore", 30) if i % 2 == 0 else ("exploit", 30) for i in range(10)],
+     "ucb-sandwich": [("random", 60)] + [("explore", 30)] * 2 + [("exploit", 30)] * 6 + [("explore", 30)] * 2,
     "ucb-explore-heavy": [("random", 60)] + [("explore", 30)] * 7 + [("exploit", 30)] * 3,
     "ucb-exploit-heavy": [("random", 60)] + [("explore", 30)] * 3 + [("exploit", 30)] * 7,
-}
+     "ucb-gradual": [("random", 60)] + [("explore", 30)] * 3 + [("ucb", 30)] * 4 + [("exploit", 30)] * 3,
+    "ucb-balanced": [("random", 60)] + [("ucb", 30)] * 10,
+ }
 
 def run_active_learning_cycle(original_df, fingerprints, kernel, selection_protocol, protocol_name, y_column):
     """
@@ -42,6 +52,10 @@ def run_active_learning_cycle(original_df, fingerprints, kernel, selection_proto
     progress_bar = st.progress(0)
     results_placeholder = st.empty()
     already_selected_indices = []
+    selected_df = pd.DataFrame()  # Initialize empty DataFrame
+    total_top_2p = original_df['top_2p'].sum()  # Total count of top 2%
+    total_top_5p = original_df['top_5p'].sum()   # Total count of top 5%
+
     cycle_results = []
     top_2p_count = 0
     top_5p_count = 0
@@ -59,7 +73,7 @@ def run_active_learning_cycle(original_df, fingerprints, kernel, selection_proto
             train_y = torch.tensor(original_df.iloc[already_selected_indices][y_column].values).float()
             likelihood = gpytorch.likelihoods.GaussianLikelihood()
             model = GPRegressionModel(train_x, train_y, likelihood, kernel)
-            model, likelihood = train_gp_model(train_x, train_y, likelihood, model)
+            model, likelihood, _ = train_gp_model(train_x, train_y, likelihood, model)
 
             if method == "explore" or method == "exploit":
                 alpha, beta = (0, 1) if method == "explore" else (1, 0)
@@ -84,7 +98,7 @@ def run_active_learning_cycle(original_df, fingerprints, kernel, selection_proto
         final_train_y = torch.tensor(original_df.iloc[already_selected_indices][y_column].values).float()
         final_likelihood = gpytorch.likelihoods.GaussianLikelihood()
         final_model = GPRegressionModel(final_train_x, final_train_y, final_likelihood, kernel)
-        final_model, final_likelihood = train_gp_model(final_train_x, final_train_y, final_likelihood, final_model)
+        final_model, final_likelihood, _ = train_gp_model(final_train_x, final_train_y, final_likelihood, final_model)
         test_x = torch.tensor(fp_array).float()
         test_y = torch.tensor(original_df[y_column].values).float()
         r2, spearman = calculate_metrics(final_model, final_likelihood, test_x, test_y)
@@ -230,6 +244,9 @@ def main():
                 
                 st.header("Final Results Comparison")
                 st.dataframe(all_results_df)
+                print(all_results_df.columns.tolist())
+                print(all_results_df.head())
+
                 make_plot_recall(all_results_df, y='Recall (2%)')
                 make_plot_recall(all_results_df, y='Recall (5%)')
 

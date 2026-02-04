@@ -29,11 +29,18 @@ class TanimotoKernel(gpytorch.kernels.Kernel):
 
 class GPRegressionModel(gpytorch.models.ExactGP):
     """GP regression model using the package's `TanimotoKernel` by default."""
-
-    def __init__(self, train_x, train_y, likelihood):
+    def __init__(self, train_x, train_y, likelihood, kernel=None):
         super(GPRegressionModel, self).__init__(train_x, train_y, likelihood)
         self.mean_module = gpytorch.means.ConstantMean()
-        self.covar_module = TanimotoKernel()
+        if kernel is None:
+            self.covar_module = TanimotoKernel()
+        elif hasattr(kernel, 'get_kernel'):
+            self.covar_module = kernel.get_kernel()
+        else:
+            # Kernel is already a gpytorch kernel instance
+            self.covar_module = kernel
+
+
 
     def forward(self, x):
         mean_x = self.mean_module(x)
@@ -173,5 +180,7 @@ def active_learning(original_df, fingerprints, epochs, lr, lr_decay, selection_p
         })
 
         print(f"Cycle {cycle} ({method}): R2={r2:.4f} Spearman={spearman:.4f} Acquired={len(selected_df)}")
+        print("active_learning.py cycle complete.\n")
+
 
     return cycle_results, already_selected_indices, all_predictions, gp_model, likelihood
