@@ -30,10 +30,14 @@ class GPRegressionModel(gpytorch.models.ExactGP):
     This is a thin wrapper around `gpytorch.models.ExactGP`.
     """
 
-    def __init__(self, train_x, train_y, likelihood):
+    def __init__(self, train_x, train_y, likelihood, kernel=None):
         super(GPRegressionModel, self).__init__(train_x, train_y, likelihood)
         self.mean_module = gpytorch.means.ConstantMean()
-        self.covar_module = TanimotoKernel()
+        if kernel is None:
+            self.covar_module = TanimotoKernel()
+        else:
+            self.covar_module = kernel.get_kernel()
+
 
     def forward(self, x):
         """Compute the GP prior for inputs `x` and return a MultivariateNormal."""

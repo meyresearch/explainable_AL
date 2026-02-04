@@ -41,15 +41,16 @@ def get_maccs_from_smiles_list(smiles_list):
 
 
 def load_chemberta_embeddings(npz_file):
-    import numpy as _np
-
-    data = _np.load(npz_file)
+    data = np.load(npz_file)
     if 'embeddings' in data:
         return data['embeddings']
     elif 'arr_0' in data:
         return data['arr_0']
+    elif 'tokens' in data:  # Add this
+        return data['tokens']
     else:
         raise ValueError('No embeddings key found in npz file')
+
 
 
 def smiles_to_chemberta(smiles_df, batch_size=32):

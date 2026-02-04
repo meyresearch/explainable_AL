@@ -1,5 +1,6 @@
 from .utils import *
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 def calculate_metrics(model, likelihood, test_x, test_y):
     """Compute R^2 and Spearman correlation between model predictions and targets.
@@ -77,6 +78,9 @@ def make_plot_recall(data: pd.DataFrame, y: str = "Recall (2%)"):
     font_sizes = {'font.size': 12, 'axes.labelsize': 14, 'axes.titlesize': 16, 'xtick.labelsize': 12, 'ytick.labelsize': 12}
     sns.set_context("talk", rc=font_sizes)
 
+    if 'Dataset' not in data.columns:
+        data = data.copy()
+        data['Dataset'] = 'Default'
     DATASET_ORDER = sorted(data['Dataset'].unique())
     PROTOCOL_ORDER = sorted(data['Protocol'].unique())
 
