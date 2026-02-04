@@ -114,7 +114,7 @@ See [LICENSE.md](LICENSE.md). -->
 
 - Satya Pratik Srivastava ([ss864@snu.edu.in](mailto:ss864@snu.edu.in))
 
-- Rohan Gorantla ([rohan.gorantla@ed.ac.uk](mailto:gorantlarohan@gmail.com))
+- Rohan Gorantla ([gorantlarohan@gmail.com](mailto:gorantlarohan@gmail.com))
 
 - Antonia Mey ([antonia.mey@ed.ac.uk](mailto:antonia.mey@ed.ac.uk))
 
