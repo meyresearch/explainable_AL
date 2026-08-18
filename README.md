@@ -4,7 +4,7 @@ Active learning (AL) prioritises which compounds to measure next for protein–l
 
 ![Active learning pipeline](workflow.png)
 
-🔗 Preprint: https://www.biorxiv.org/content/10.64898/2025.12.17.694851v1.full.pdf
+🔗 Paper: https://pubs.rsc.org/dd/article/5/2/769/1249049
 
 📦 Zenodo (SHAP results): https://zenodo.org/records/17935028
 
@@ -93,13 +93,19 @@ If you find the work useful in your research, please cite our paper:
 
 ```
 @article{srivastava2025explainable,
-  title={Explainable Active Learning Framework for Ligand Binding Affinity Prediction},
-  author={Srivastava, Satya Pratik and Gorantla, Rohan and Sharath Krishna, Chundru and Winkelman, Claire JR and Mey, Antonia and Singh, Rajeev Kumar},
-  journal={bioRxiv},
-  pages={2025--12},
-  year={2025},
-  publisher={Cold Spring Harbor Laboratory}
+    author = {Srivastava, Satya Pratik and Gorantla, Rohan and Chundru, Sharath Krishna and Winkelman, Claire J. R. and Mey, Antonia S. J. S. and Singh, Rajeev Kumar},
+    title = {Explainable active learning framework for ligand binding affinity prediction},
+    journal = {Digital Discovery},
+    volume = {5},
+    number = {2},
+    pages = {769-779},
+    year = {2026},
+    month = {02},
+    issn = {2635-098X},
+    doi = {10.1039/d5dd00436e},
+    url = {https://doi.org/10.1039/d5dd00436e},
 }
+
 ```
 
 
