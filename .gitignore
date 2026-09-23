@@ -145,6 +145,10 @@ cython_debug/
 
 # Experiment results and outputs
 results/
+notebook_outputs/
+deliverables/
+supervisor_tyk2_source_20260923/
+al_for_lindsey/node_modules/
 *.log
 *.tmp
 *.bak

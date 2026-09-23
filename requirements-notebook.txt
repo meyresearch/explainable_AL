@@ -1,0 +1,7 @@
+# Small, CPU-friendly notebook environment.
+numpy>=1.24,<3
+pandas>=2.0,<3
+scikit-learn>=1.3,<2
+rdkit>=2023.9
+matplotlib>=3.7
+jupyterlab>=4

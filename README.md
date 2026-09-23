@@ -1,5 +1,20 @@
 # Explainable Active Learning Framework for Ligand Binding Affinity Prediction
 
+## Start with a Jupyter notebook
+
+For a fresh clone, use [the library-ranking notebook](notebooks/quickstart_library_ranking.ipynb). It runs with the tracked TYK2 example, then lets you substitute a measured CSV and a virtual-library CSV. It exports held-out predictions, a full library ranking, and top candidates. See the [notebook guide](notebooks/README.md) for input columns and interpretation.
+
+```bash
+python -m venv .venv
+# Activate .venv for your shell, then:
+python -m pip install -r requirements-notebook.txt
+jupyter lab notebooks/quickstart_library_ranking.ipynb
+```
+
+The notebook uses a lightweight Morgan-fingerprint random forest. The larger TYK2 research ensemble and its historical results require additional data and trained artifacts; the notebook is a reusable entry point for a user's own molecules.
+
+For a supervisor review of the 14-model TYK2 analysis, use [the results review notebook](notebooks/review_tyk2_results.ipynb) and its [artifact guide](notebooks/REVIEW_TYK2.md). The large data files are shared separately; their sizes and SHA-256 hashes are recorded in the repository.
+
 Active learning (AL) prioritises which compounds to measure next for protein–ligand affinity when assay or simulation budgets are limited. We present an explainable AL framework built on Gaussian process regression and assess how molecular representations, covariance kernels, and acquisition policies affect enrichment across four drug-relevant targets. Using recall of top active compounds, we find that dataset identity—the target’s chemical landscape—sets the performance ceiling, while method choices modulate outcomes rather than overturn them. Fingerprints with simple Gaussian process kernels provide robust, low-variance enrichment, whereas learned embeddings with nonlinear kernels can reach higher peaks but with greater variability. Uncertainty-guided acquisition consistently outperforms random selection, yet no single policy is universally optimal; the best choice follows structure-activity relationship (SAR) complexity. To enhance interpretability beyond blackbox selection, we integrate SHapley Additive exPlanations (SHAP) to link high-impact fingerprint bits to chemically meaningful fragments across AL cycles, illustrating how the model’s attention progressively concentrates on SAR-relevant motifs.
 
 ![Active learning pipeline](workflow.png)
